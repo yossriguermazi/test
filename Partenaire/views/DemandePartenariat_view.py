@@ -14,10 +14,10 @@ def findAll() -> dict:
     try:
         limit = request.args.get("limit", 10, type=int)
         page = request.args.get("page", 1, type=int)
-        name = request.args.get("name")
-        type = request.args.get("type")
-        countryName = request.args.get("countryName")
-        criteria = Criteria(name=name, type=type, countryName=countryName)
+        nom_entreprise = request.args.get("nom_entreprise")
+        nom_institut = request.args.get("nom_institut")
+        statut_demande = request.args.get("statut_demande")
+        criteria = Criteria(nom_entreprise=nom_entreprise, nom_institut=nom_institut, statut_demande=statut_demande)
         results = controller.findAll(criteria)
         return jsonResponse(results)
     except Exception as e:
